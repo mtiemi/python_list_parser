@@ -1,6 +1,5 @@
 /* Nome: Mariane Tiemi Iguti RA: 147279 
-    EA876 - Laboratório 3 - PythonListParser */
-
+   EA876 - Laboratório 3 - PythonListParser */
 %{
 
 #include <stdio.h>
@@ -26,7 +25,7 @@ ELEMENTO: // pode ser vazio
         | LISTA
         ;
             
-LISTA:
+LISTA: // lista pode ter outra lista dentro
     ABRECHAVE ELEMENTO FECHACHAVE
     | LISTA ABRECHAVE ELEMENTO FECHACHAVE
     ;                                              
@@ -35,7 +34,7 @@ LISTA:
 
 void yyerror(char *s) 
 {
-    printf("ERRO\n");
+    printf("ERRO\n"); // em caso de lista invalida, print ERRO
 }
 
 int main() 
